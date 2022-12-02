@@ -15,6 +15,7 @@ class TestViews(TestCase):
 
         cls.override = override_settings(
             STATIC_ROOT=cls.static_dir,
+            STATICFILES_STORAGE=None,
         )
         cls.override.enable()
 

@@ -31,7 +31,7 @@ rapidfuzz = "*"
 redis = {extras = ["hiredis"], version = "*"}
 scikit-learn = "~=1.1"
 numpy = "*"
-whitenoise = "~=6.2"
+whitenoise = {version = "~=6.2", extras = ["brotli"]}
 watchdog = "~=2.1"
 whoosh="~=2.7"
 inotifyrecursive = "~=0.3"
