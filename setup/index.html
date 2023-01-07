@@ -1,0 +1,1566 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../usage/">
+      
+      <link rel="icon" href="../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.1">
+    
+    
+      
+        <title>Setup - Paperless-ngx</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.3bd4f189.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#installation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Paperless-ngx" class="md-header__button md-logo" aria-label="Paperless-ngx" data-md-component="logo">
+      
+  <img src="../assets/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Paperless-ngx
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Setup
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/paperless-ngx/paperless-ngx" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href=".." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  <li class="md-tabs__item">
+    <a href="./" class="md-tabs__link md-tabs__link--active">
+      Setup
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../usage/" class="md-tabs__link">
+      Basic Usage
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../configuration/" class="md-tabs__link">
+      Configuration
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../administration/" class="md-tabs__link">
+      Administration
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../advanced_usage/" class="md-tabs__link">
+      Advanced Topics
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../api/" class="md-tabs__link">
+      REST API
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../development/" class="md-tabs__link">
+      Development
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../faq/" class="md-tabs__link">
+      FAQs
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../troubleshooting/" class="md-tabs__link">
+      Troubleshooting
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../changelog/" class="md-tabs__link">
+      Changelog
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Paperless-ngx" class="md-nav__button md-logo" aria-label="Paperless-ngx" data-md-component="logo">
+      
+  <img src="../assets/logo.svg" alt="logo">
+
+    </a>
+    Paperless-ngx
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/paperless-ngx/paperless-ngx" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Setup
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Setup
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docker_script" class="md-nav__link">
+    Docker using the Installation Script
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker_hub" class="md-nav__link">
+    From GHCR / Docker Hub
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker_build" class="md-nav__link">
+    Build the Docker image yourself
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bare_metal" class="md-nav__link">
+    Bare Metal Route
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migrating-to-paperless-ngx" class="md-nav__link">
+    Migrating to Paperless-ngx
+  </a>
+  
+    <nav class="md-nav" aria-label="Migrating to Paperless-ngx">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#migrating-from-paperless-ng" class="md-nav__link">
+    Migrating from Paperless-ng
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#migrating-from-paperless" class="md-nav__link">
+    Migrating from Paperless
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#migrating-from-linuxserverio-docker-image" class="md-nav__link">
+    Migrating from LinuxServer.io Docker Image
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sqlite_to_psql" class="md-nav__link">
+    Moving data from SQLite to PostgreSQL or MySQL/MariaDB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#moving-back-to-paperless" class="md-nav__link">
+    Moving back to Paperless
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#less-powerful-devices" class="md-nav__link">
+    Considerations for less powerful devices
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nginx" class="md-nav__link">
+    Using nginx as a reverse proxy
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usage/" class="md-nav__link">
+        Basic Usage
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/" class="md-nav__link">
+        Configuration
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../administration/" class="md-nav__link">
+        Administration
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../advanced_usage/" class="md-nav__link">
+        Advanced Topics
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/" class="md-nav__link">
+        REST API
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/" class="md-nav__link">
+        Development
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        FAQs
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../troubleshooting/" class="md-nav__link">
+        Troubleshooting
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../changelog/" class="md-nav__link">
+        Changelog
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+
+  <h1>Setup</h1>
+
+<h2 id="installation">Installation</h2>
+<p>You can go multiple routes to setup and run Paperless:</p>
+<ul>
+<li><a href="#docker_script">Use the easy install docker script</a></li>
+<li><a href="#docker_hub">Pull the image from Docker Hub</a></li>
+<li><a href="#docker_build">Build the Docker image yourself</a></li>
+<li><a href="#bare_metal">Install Paperless directly on your system manually (bare metal)</a></li>
+</ul>
+<p>The Docker routes are quick &amp; easy. These are the recommended routes.
+This configures all the stuff from the above automatically so that it
+just works and uses sensible defaults for all configuration options.
+Here you find a cheat-sheet for docker beginners: <a href="https://www.sehn.tech/refs/devops-with-docker/">CLI
+Basics</a></p>
+<p>The bare metal route is complicated to setup but makes it easier should
+you want to contribute some code back. You need to configure and run the
+above mentioned components yourself.</p>
+<h3 id="docker_script">Docker using the Installation Script</h3>
+<p>Paperless provides an interactive installation script. This script will
+ask you for a couple configuration options, download and create the
+necessary configuration files, pull the docker image, start paperless
+and create your user account. This script essentially performs all the
+steps described in <a href="#docker_hub">Docker setup</a> automatically.</p>
+<ol>
+<li>
+<p>Make sure that docker and docker-compose are installed.</p>
+</li>
+<li>
+<p>Download and run the installation script:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">$ </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>curl<span class="w"> </span>-L<span class="w"> </span>https://raw.githubusercontent.com/paperless-ngx/paperless-ngx/main/install-paperless-ngx.sh<span class="k">)</span><span class="s2">&quot;</span>
+</code></pre></div>
+</li>
+</ol>
+<h3 id="docker_hub">From GHCR / Docker Hub</h3>
+<ol>
+<li>
+<p>Login with your user and create a folder in your home-directory to have a place for your
+    configuration files and consumption directory.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="gp">$ </span>mkdir<span class="w"> </span>-v<span class="w"> </span>~/paperless-ngx
+</code></pre></div>
+</li>
+<li>
+<p>Go to the <a href="https://github.com/paperless-ngx/paperless-ngx/tree/master/docker/compose">/docker/compose directory on the project
+    page</a>
+    and download one of the <code>docker-compose.*.yml</code> files,
+    depending on which database backend you want to use. Rename this
+    file to <code>docker-compose.*.yml</code>. If you want to enable
+    optional support for Office documents, download a file with
+    <code>-tika</code> in the file name. Download the
+    <code>docker-compose.env</code> file and the <code>.env</code> file as well and store them
+    in the same directory.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For new installations, it is recommended to use PostgreSQL as the
+database backend.</p>
+</div>
+</li>
+<li>
+<p>Install <a href="https://www.docker.com/">Docker</a> and
+    <a href="https://docs.docker.com/compose/install/">docker-compose</a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you want to use the included <code>docker-compose.*.yml</code> file, you
+need to have at least Docker version <strong>17.09.0</strong> and docker-compose
+version <strong>1.17.0</strong>. To check do: <code>docker-compose -v</code> or
+<code>docker -v</code></p>
+<p>See the <a href="https://docs.docker.com/engine/install/">Docker installation guide</a> on how to install the current
+version of Docker for your operating system or Linux distribution of
+choice. To get the latest version of docker-compose, follow the
+<a href="https://docs.docker.com/compose/install/linux/">docker-compose installation guide</a> if your package repository
+doesn't include it.</p>
+</div>
+</li>
+<li>
+<p>Modify <code>docker-compose.yml</code> to your preferences. You may want to
+    change the path to the consumption directory. Find the line that
+    specifies where to mount the consumption directory:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./consume:/usr/src/paperless/consume</span>
+</code></pre></div>
+<p>Replace the part BEFORE the colon with a local directory of your
+choice:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/home/jonaswinkler/paperless-inbox:/usr/src/paperless/consume</span>
+</code></pre></div>
+<p>Don't change the part after the colon or paperless wont find your
+documents.</p>
+<p>You may also need to change the default port that the webserver will
+use from the default (8000):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nt">ports</span><span class="p">:</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8000:8000</span>
+</code></pre></div>
+<p>Replace the part BEFORE the colon with a port of your choice:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nt">ports</span><span class="p">:</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8010:8000</span>
+</code></pre></div>
+<p>Don't change the part after the colon or edit other lines that
+refer to port 8000. Modifying the part before the colon will map
+requests on another port to the webserver running on the default
+port.</p>
+<p><strong>Rootless</strong></p>
+<p>If you want to run Paperless as a rootless container, you will need
+to do the following in your <code>docker-compose.yml</code>:</p>
+<ul>
+<li>set the <code>user</code> running the container to map to the <code>paperless</code>
+  user in the container. This value (<code>user_id</code> below), should be
+  the same id that <code>USERMAP_UID</code> and <code>USERMAP_GID</code> are set to in
+  the next step. See <code>USERMAP_UID</code> and <code>USERMAP_GID</code>
+  <a href="/configuration#docker">here</a>.</li>
+</ul>
+<p>Your entry for Paperless should contain something like:</p>
+<blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>webserver:
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>  image: ghcr.io/paperless-ngx/paperless-ngx:latest
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>  user: &lt;user_id&gt;
+</code></pre></div>
+</blockquote>
+</li>
+<li>
+<p>Modify <code>docker-compose.env</code>, following the comments in the file. The
+    most important change is to set <code>USERMAP_UID</code> and <code>USERMAP_GID</code> to
+    the uid and gid of your user on the host system. Use <code>id -u</code> and
+    <code>id -g</code> to get these.</p>
+<p>This ensures that both the docker container and you on the host
+machine have write access to the consumption directory. If your UID
+and GID on the host system is 1000 (the default for the first normal
+user on most systems), it will work out of the box without any
+modifications. <code>id "username"</code> to check.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can copy any setting from the file <code>paperless.conf.example</code> and
+paste it here. Have a look at [configuration](/configuration] to see what's available.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can utilize Docker secrets for some configuration settings by
+appending <code>_FILE</code> to some configuration values. This is
+supported currently only by:</p>
+<ul>
+<li>PAPERLESS_DBUSER</li>
+<li>PAPERLESS_DBPASS</li>
+<li>PAPERLESS_SECRET_KEY</li>
+<li>PAPERLESS_AUTO_LOGIN_USERNAME</li>
+<li>PAPERLESS_ADMIN_USER</li>
+<li>PAPERLESS_ADMIN_MAIL</li>
+<li>PAPERLESS_ADMIN_PASSWORD</li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Some file systems such as NFS network shares don't support file
+system notifications with <code>inotify</code>. When storing the consumption
+directory on such a file system, paperless will not pick up new
+files with the default configuration. You will need to use
+<code>PAPERLESS_CONSUMER_POLLING</code>, which will disable inotify. See
+<a href="/configuration#polling">here</a>.</p>
+</div>
+</li>
+<li>
+<p>Run <code>docker-compose pull</code>, followed by <code>docker-compose up -d</code>. This
+    will pull the image, create and start the necessary containers.</p>
+</li>
+<li>
+<p>To be able to login, you will need a super user. To create it,
+    execute the following command:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="gp">$ </span>docker-compose<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>webserver<span class="w"> </span>createsuperuser
+</code></pre></div>
+<p>This will prompt you to set a username, an optional e-mail address
+and finally a password (at least 8 characters).</p>
+</li>
+<li>
+<p>The default <code>docker-compose.yml</code> exports the webserver on your local
+    port</p>
+<p>8000. If you did not change this, you should now be able to visit
+your Paperless instance at <code>http://127.0.0.1:8000</code> or your servers
+IP-Address:8000. Use the login credentials you have created with the
+previous step.</p>
+</li>
+</ol>
+<h3 id="docker_build">Build the Docker image yourself</h3>
+<ol>
+<li>
+<p>Clone the entire repository of paperless:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="go">git clone https://github.com/paperless-ngx/paperless-ngx</span>
+</code></pre></div>
+<p>The master branch always reflects the latest stable version.</p>
+</li>
+<li>
+<p>Copy one of the <code>docker/compose/docker-compose.*.yml</code> to
+    <code>docker-compose.yml</code> in the root folder, depending on which database
+    backend you want to use. Copy <code>docker-compose.env</code> into the project
+    root as well.</p>
+</li>
+<li>
+<p>In the <code>docker-compose.yml</code> file, find the line that instructs
+    docker-compose to pull the paperless image from Docker Hub:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nt">webserver</span><span class="p">:</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ghcr.io/paperless-ngx/paperless-ngx:latest</span>
+</code></pre></div>
+<p>and replace it with a line that instructs docker-compose to build
+the image from the current working directory instead:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nt">webserver</span><span class="p">:</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span><span class="nt">build</span><span class="p">:</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span><span class="nt">args</span><span class="p">:</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">      </span><span class="nt">QPDF_VERSION</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">x.y.x</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">      </span><span class="nt">PIKEPDF_VERSION</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">x.y.z</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">      </span><span class="nt">PSYCOPG2_VERSION</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">x.y.z</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">      </span><span class="nt">JBIG2ENC_VERSION</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.29</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You should match the build argument versions to the version for the
+release you have checked out. These are pre-built images with
+certain, more updated software. If you want to build these images
+your self, that is possible, but beyond the scope of these steps.</p>
+</div>
+</li>
+<li>
+<p>Follow steps 3 to 8 of <a href="#docker_hub">Docker Setup</a>. When asked to run
+    <code>docker-compose pull</code> to pull the image, do</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="gp">$ </span>docker-compose<span class="w"> </span>build
+</code></pre></div>
+<p>instead to build the image.</p>
+</li>
+</ol>
+<h3 id="bare_metal">Bare Metal Route</h3>
+<p>Paperless runs on linux only. The following procedure has been tested on
+a minimal installation of Debian/Buster, which is the current stable
+release at the time of writing. Windows is not and will never be
+supported.</p>
+<ol>
+<li>
+<p>Install dependencies. Paperless requires the following packages.</p>
+<ul>
+<li><code>python3</code> 3.8, 3.9</li>
+<li><code>python3-pip</code></li>
+<li><code>python3-dev</code></li>
+<li><code>default-libmysqlclient-dev</code> for MariaDB</li>
+<li><code>fonts-liberation</code> for generating thumbnails for plain text
+  files</li>
+<li><code>imagemagick</code> &gt;= 6 for PDF conversion</li>
+<li><code>gnupg</code> for handling encrypted documents</li>
+<li><code>libpq-dev</code> for PostgreSQL</li>
+<li><code>libmagic-dev</code> for mime type detection</li>
+<li><code>mariadb-client</code> for MariaDB compile time</li>
+<li><code>mime-support</code> for mime type detection</li>
+<li><code>libzbar0</code> for barcode detection</li>
+<li><code>poppler-utils</code> for barcode detection</li>
+</ul>
+<p>Use this list for your preferred package management:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>python3 python3-pip python3-dev imagemagick fonts-liberation gnupg libpq-dev default-libmysqlclient-dev libmagic-dev mime-support libzbar0 poppler-utils
+</code></pre></div>
+<p>These dependencies are required for OCRmyPDF, which is used for text
+recognition.</p>
+<ul>
+<li><code>unpaper</code></li>
+<li><code>ghostscript</code></li>
+<li><code>icc-profiles-free</code></li>
+<li><code>qpdf</code></li>
+<li><code>liblept5</code></li>
+<li><code>libxml2</code></li>
+<li><code>pngquant</code> (suggested for certain PDF image optimizations)</li>
+<li><code>zlib1g</code></li>
+<li><code>tesseract-ocr</code> &gt;= 4.0.0 for OCR</li>
+<li><code>tesseract-ocr</code> language packs (<code>tesseract-ocr-eng</code>,
+  <code>tesseract-ocr-deu</code>, etc)</li>
+</ul>
+<p>Use this list for your preferred package management:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>unpaper ghostscript icc-profiles-free qpdf liblept5 libxml2 pngquant zlib1g tesseract-ocr
+</code></pre></div>
+<p>On Raspberry Pi, these libraries are required as well:</p>
+<ul>
+<li><code>libatlas-base-dev</code></li>
+<li><code>libxslt1-dev</code></li>
+</ul>
+<p>You will also need <code>build-essential</code>, <code>python3-setuptools</code> and
+<code>python3-wheel</code> for installing some of the python dependencies.</p>
+</li>
+<li>
+<p>Install <code>redis</code> &gt;= 6.0 and configure it to start automatically.</p>
+</li>
+<li>
+<p>Optional. Install <code>postgresql</code> and configure a database, user and
+    password for paperless. If you do not wish to use PostgreSQL,
+    MariaDB and SQLite are available as well.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>On bare-metal installations using SQLite, ensure the <a href="https://code.djangoproject.com/wiki/JSON1Extension">JSON1
+extension</a> is
+enabled. This is usually the case, but not always.</p>
+</div>
+</li>
+<li>
+<p>Get the release archive from
+    <a href="https://github.com/paperless-ngx/paperless-ngx/releases">https://github.com/paperless-ngx/paperless-ngx/releases</a>. Extract the
+    archive to a place from where you wish to execute it, such as
+    <code>/opt/paperless</code>. If you clone the git repo as it is, you also have to
+    compile the frontend yourself, see <a href="/development#front-end-development">here</a>
+    and use the <code>build</code> step, not <code>serve</code>.</p>
+</li>
+<li>
+<p>Configure paperless. See <a href="/configuration">configuration</a> for details.
+    Edit the included <code>paperless.conf</code> and adjust the settings to your
+    needs. Required settings for getting
+    paperless running are:</p>
+<ul>
+<li><code>PAPERLESS_REDIS</code> should point to your redis server, such as
+  <redis://localhost:6379>.</li>
+<li><code>PAPERLESS_DBENGINE</code> optional, and should be one of <code>postgres</code>,
+  <code>mariadb</code>, or <code>sqlite</code></li>
+<li><code>PAPERLESS_DBHOST</code> should be the hostname on which your
+  PostgreSQL server is running. Do not configure this to use
+  SQLite instead. Also configure port, database name, user and
+  password as necessary.</li>
+<li><code>PAPERLESS_CONSUMPTION_DIR</code> should point to a folder which
+  paperless should watch for documents. You might want to have
+  this somewhere else. Likewise, <code>PAPERLESS_DATA_DIR</code> and
+  <code>PAPERLESS_MEDIA_ROOT</code> define where paperless stores its data.
+  If you like, you can point both to the same directory.</li>
+<li><code>PAPERLESS_SECRET_KEY</code> should be a random sequence of
+  characters. It's used for authentication. Failure to do so
+  allows third parties to forge authentication credentials.</li>
+<li><code>PAPERLESS_URL</code> if you are behind a reverse proxy. This should
+  point to your domain. Please see
+  <a href="/configuration">configuration</a> for more
+  information.</li>
+</ul>
+<p>Many more adjustments can be made to paperless, especially the OCR
+part. The following options are recommended for everyone:</p>
+<ul>
+<li>Set <code>PAPERLESS_OCR_LANGUAGE</code> to the language most of your
+  documents are written in.</li>
+<li>Set <code>PAPERLESS_TIME_ZONE</code> to your local time zone.</li>
+</ul>
+</li>
+<li>
+<p>Create a system user under which you wish to run paperless.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="go">adduser paperless --system --home /opt/paperless --group</span>
+</code></pre></div>
+</li>
+<li>
+<p>Ensure that these directories exist and that the paperless user has
+    write permissions to the following directories:</p>
+<ul>
+<li><code>/opt/paperless/media</code></li>
+<li><code>/opt/paperless/data</code></li>
+<li><code>/opt/paperless/consume</code></li>
+</ul>
+<p>Adjust as necessary if you configured different folders.</p>
+</li>
+<li>
+<p>Install python requirements from the <code>requirements.txt</code> file. It is
+    up to you if you wish to use a virtual environment or not. First you
+    should update your pip, so it gets the actual packages.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="go">sudo -Hu paperless pip3 install --upgrade pip</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="go">sudo -Hu paperless pip3 install -r requirements.txt</span>
+</code></pre></div>
+<p>This will install all python dependencies in the home directory of
+the new paperless user.</p>
+</li>
+<li>
+<p>Go to <code>/opt/paperless/src</code>, and execute the following commands:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1"># This creates the database schema.</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>sudo<span class="w"> </span>-Hu<span class="w"> </span>paperless<span class="w"> </span>python3<span class="w"> </span>manage.py<span class="w"> </span>migrate
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="c1"># This creates your first paperless user</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>sudo<span class="w"> </span>-Hu<span class="w"> </span>paperless<span class="w"> </span>python3<span class="w"> </span>manage.py<span class="w"> </span>createsuperuser
+</code></pre></div>
+</li>
+<li>
+<p>Optional: Test that paperless is working by executing</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1"># This collects static files from paperless and django.</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>sudo<span class="w"> </span>-Hu<span class="w"> </span>paperless<span class="w"> </span>python3<span class="w"> </span>manage.py<span class="w"> </span>runserver
+</code></pre></div>
+<p>and pointing your browser to <a href="http://localhost:8000/">http://localhost:8000/</a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This is a development server which should not be used in production.
+It is not audited for security and performance is inferior to
+production ready web servers.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>This will not start the consumer. Paperless does this in a separate
+process.</p>
+</div>
+</li>
+<li>
+<p>Setup systemd services to run paperless automatically. You may use
+    the service definition files included in the <code>scripts</code> folder as a
+    starting point.</p>
+<p>Paperless needs the <code>webserver</code> script to run the webserver, the
+<code>consumer</code> script to watch the input folder, <code>taskqueue</code> for the
+background workers used to handle things like document consumption
+and the <code>scheduler</code> script to run tasks such as email checking at
+certain times .</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code>socket</code> script enables <code>gunicorn</code> to run on port 80 without
+root privileges. For this you need to uncomment the
+<code>Require=paperless-webserver.socket</code> in the <code>webserver</code> script
+and configure <code>gunicorn</code> to listen on port 80 (see
+<code>paperless/gunicorn.conf.py</code>).</p>
+</div>
+<p>You may need to adjust the path to the <code>gunicorn</code> executable. This
+will be installed as part of the python dependencies, and is either
+located in the <code>bin</code> folder of your virtual environment, or in
+<code>~/.local/bin/</code> if no virtual environment is used.</p>
+<p>These services rely on redis and optionally the database server, but
+don't need to be started in any particular order. The example files
+depend on redis being started. If you use a database server, you
+should add additional dependencies.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The included scripts run a <code>gunicorn</code> standalone server, which is
+fine for running paperless. It does support SSL, however, the
+documentation of GUnicorn states that you should use a proxy server
+in front of gunicorn instead.</p>
+<p>For instructions on how to use nginx for that,
+<a href="/setup#nginx">see the instructions below</a>.</p>
+</div>
+</li>
+<li>
+<p>Optional: Install a samba server and make the consumption folder
+    available as a network share.</p>
+</li>
+<li>
+<p>Configure ImageMagick to allow processing of PDF documents. Most
+    distributions have this disabled by default, since PDF documents can
+    contain malware. If you don't do this, paperless will fall back to
+    ghostscript for certain steps such as thumbnail generation.</p>
+<p>Edit <code>/etc/ImageMagick-6/policy.xml</code> and adjust</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>&lt;policy domain=&quot;coder&quot; rights=&quot;none&quot; pattern=&quot;PDF&quot; /&gt;
+</code></pre></div>
+<p>to</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>&lt;policy domain=&quot;coder&quot; rights=&quot;read|write&quot; pattern=&quot;PDF&quot; /&gt;
+</code></pre></div>
+</li>
+<li>
+<p>Optional: Install the
+    <a href="https://ocrmypdf.readthedocs.io/en/latest/jbig2.html">jbig2enc</a>
+    encoder. This will reduce the size of generated PDF documents.
+    You'll most likely need to compile this by yourself, because this
+    software has been patented until around 2017 and binary packages are
+    not available for most distributions.</p>
+</li>
+<li>
+<p>Optional: If using the NLTK machine learning processing (see
+    <code>PAPERLESS_ENABLE_NLTK</code> in <a href="/configuration#software_tweaks">configuration</a> for details),
+    download the NLTK data for the Snowball
+    Stemmer, Stopwords and Punkt tokenizer to your
+    <code>PAPERLESS_DATA_DIR/nltk</code>. Refer to the <a href="https://www.nltk.org/data.html">NLTK
+    instructions</a> for details on how to
+    download the data.</p>
+</li>
+</ol>
+<h1 id="migrating-to-paperless-ngx">Migrating to Paperless-ngx</h1>
+<p>Migration is possible both from Paperless-ng or directly from the
+'original' Paperless.</p>
+<h2 id="migrating-from-paperless-ng">Migrating from Paperless-ng</h2>
+<p>Paperless-ngx is meant to be a drop-in replacement for Paperless-ng and
+thus upgrading should be trivial for most users, especially when using
+docker. However, as with any major change, it is recommended to take a
+full backup first. Once you are ready, simply change the docker image to
+point to the new source. E.g. if using Docker Compose, edit
+<code>docker-compose.yml</code> and change:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>image: jonaswinkler/paperless-ng:latest
+</code></pre></div>
+<p>to</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>image: ghcr.io/paperless-ngx/paperless-ngx:latest
+</code></pre></div>
+<p>and then run <code>docker-compose up -d</code> which will pull the new image
+recreate the container. That's it!</p>
+<p>Users who installed with the bare-metal route should also update their
+Git clone to point to <code>https://github.com/paperless-ngx/paperless-ngx</code>,
+e.g. using the command
+<code>git remote set-url origin https://github.com/paperless-ngx/paperless-ngx</code>
+and then pull the lastest version.</p>
+<h2 id="migrating-from-paperless">Migrating from Paperless</h2>
+<p>At its core, paperless-ngx is still paperless and fully compatible.
+However, some things have changed under the hood, so you need to adapt
+your setup depending on how you installed paperless.</p>
+<p>This setup describes how to update an existing paperless Docker
+installation. The important things to keep in mind are as follows:</p>
+<ul>
+<li>Read the <a href="/changelog">changelog</a> and
+  take note of breaking changes.</li>
+<li>You should decide if you want to stick with SQLite or want to
+  migrate your database to PostgreSQL. See <a href="#sqlite_to_psql">documentation</a>
+  for details on
+  how to move your data from SQLite to PostgreSQL. Both work fine with
+  paperless. However, if you already have a database server running
+  for other services, you might as well use it for paperless as well.</li>
+<li>The task scheduler of paperless, which is used to execute periodic
+  tasks such as email checking and maintenance, requires a
+  <a href="https://redis.io/">redis</a> message broker instance. The
+  docker-compose route takes care of that.</li>
+<li>The layout of the folder structure for your documents and data
+  remains the same, so you can just plug your old docker volumes into
+  paperless-ngx and expect it to find everything where it should be.</li>
+</ul>
+<p>Migration to paperless-ngx is then performed in a few simple steps:</p>
+<ol>
+<li>
+<p>Stop paperless.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/path/to/current/paperless
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>$<span class="w"> </span>docker-compose<span class="w"> </span>down
+</code></pre></div>
+</li>
+<li>
+<p>Do a backup for two purposes: If something goes wrong, you still
+    have your data. Second, if you don't like paperless-ngx, you can
+    switch back to paperless.</p>
+</li>
+<li>
+<p>Download the latest release of paperless-ngx. You can either go with
+    the docker-compose files from
+    <a href="https://github.com/paperless-ngx/paperless-ngx/tree/master/docker/compose">here</a>
+    or clone the repository to build the image yourself (see
+    <a href="#docker_build">above</a>). You can
+    either replace your current paperless folder or put paperless-ngx in
+    a different location.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Paperless-ngx includes a <code>.env</code> file. This will set the project name
+for docker compose to <code>paperless</code>, which will also define the name
+of the volumes by paperless-ngx. However, if you experience that
+paperless-ngx is not using your old paperless volumes, verify the
+names of your volumes with</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="gp">$ </span>docker<span class="w"> </span>volume<span class="w"> </span>ls<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>_data
+</code></pre></div>
+<p>and adjust the project name in the <code>.env</code> file so that it matches
+the name of the volumes before the <code>_data</code> part.</p>
+</div>
+</li>
+<li>
+<p>Download the <code>docker-compose.sqlite.yml</code> file to
+    <code>docker-compose.yml</code>. If you want to switch to PostgreSQL, do that
+    after you migrated your existing SQLite database.</p>
+</li>
+<li>
+<p>Adjust <code>docker-compose.yml</code> and <code>docker-compose.env</code> to your needs.
+    See <a href="#docker_hub">Docker setup</a> details on
+    which edits are advised.</p>
+</li>
+<li>
+<p><a href="/administration#updating">Update paperless.</a></p>
+</li>
+<li>
+<p>In order to find your existing documents with the new search
+    feature, you need to invoke a one-time operation that will create
+    the search index:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="gp">$ </span>docker-compose<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>webserver<span class="w"> </span>document_index<span class="w"> </span>reindex
+</code></pre></div>
+<p>This will migrate your database and create the search index. After
+that, paperless will take care of maintaining the index by itself.</p>
+</li>
+<li>
+<p>Start paperless-ngx.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>$<span class="w"> </span>docker-compose<span class="w"> </span>up<span class="w"> </span>-d
+</code></pre></div>
+<p>This will run paperless in the background and automatically start it
+on system boot.</p>
+</li>
+<li>
+<p>Paperless installed a permanent redirect to <code>admin/</code> in your
+    browser. This redirect is still in place and prevents access to the
+    new UI. Clear your browsing cache in order to fix this.</p>
+</li>
+<li>
+<p>Optionally, follow the instructions below to migrate your existing
+    data to PostgreSQL.</p>
+</li>
+</ol>
+<h2 id="migrating-from-linuxserverio-docker-image">Migrating from LinuxServer.io Docker Image</h2>
+<p>As with any upgrades and large changes, it is highly recommended to
+create a backup before starting. This assumes the image was running
+using Docker Compose, but the instructions are translatable to Docker
+commands as well.</p>
+<ol>
+<li>Stop and remove the paperless container</li>
+<li>If using an external database, stop the container</li>
+<li>Update Redis configuration
+    a) If <code>REDIS_URL</code> is already set, change it to <code>PAPERLESS_REDIS</code>
+    and continue to step 4.
+    b) Otherwise, in the <code>docker-compose.yml</code> add a new service for
+    Redis, following <a href="https://github.com/paperless-ngx/paperless-ngx/tree/main/docker/compose">the example compose
+    files</a>
+    c) Set the environment variable <code>PAPERLESS_REDIS</code> so it points to
+    the new Redis container</li>
+<li>Update user mapping
+    a) If set, change the environment variable <code>PUID</code> to <code>USERMAP_UID</code>
+    b) If set, change the environment variable <code>PGID</code> to <code>USERMAP_GID</code></li>
+<li>Update configuration paths
+    a) Set the environment variable <code>PAPERLESS_DATA_DIR</code> to <code>/config</code></li>
+<li>Update media paths
+    a) Set the environment variable <code>PAPERLESS_MEDIA_ROOT</code> to
+    <code>/data/media</code></li>
+<li>Update timezone
+    a) Set the environment variable <code>PAPERLESS_TIME_ZONE</code> to the same
+    value as <code>TZ</code></li>
+<li>Modify the <code>image:</code> to point to
+    <code>ghcr.io/paperless-ngx/paperless-ngx:latest</code> or a specific version
+    if preferred.</li>
+<li>Start the containers as before, using <code>docker-compose</code>.</li>
+</ol>
+<h2 id="sqlite_to_psql">Moving data from SQLite to PostgreSQL or MySQL/MariaDB</h2>
+<p>Moving your data from SQLite to PostgreSQL or MySQL/MariaDB is done via
+executing a series of django management commands as below. The commands
+below use PostgreSQL, but are applicable to MySQL/MariaDB with the</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Make sure that your SQLite database is migrated to the latest version.
+Starting paperless will make sure that this is the case. If your try to
+load data from an old database schema in SQLite into a newer database
+schema in PostgreSQL, you will run into trouble.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>On some database fields, PostgreSQL enforces predefined limits on
+maximum length, whereas SQLite does not. The fields in question are the
+title of documents (128 characters), names of document types, tags and
+correspondents (128 characters), and filenames (1024 characters). If you
+have data in these fields that surpasses these limits, migration to
+PostgreSQL is not possible and will fail with an error.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>MySQL is case insensitive by default, treating values like "Name" and
+"NAME" as identical. See <a href="/advanced_usage#mysql-caveats">MySQL caveats</a> for details.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>MySQL also enforces limits on maximum lengths, but does so differently than
+PostgreSQL.  It may not be possible to migrate to MySQL due to this.</p>
+</div>
+<ol>
+<li>
+<p>Stop paperless, if it is running.</p>
+</li>
+<li>
+<p>Tell paperless to use PostgreSQL:</p>
+<p>a) With docker, copy the provided <code>docker-compose.postgres.yml</code>
+file to <code>docker-compose.yml</code>. Remember to adjust the consumption
+directory, if necessary.
+b) Without docker, configure the database in your <code>paperless.conf</code>
+file. See <a href="/configuration">configuration</a> for
+details.</p>
+</li>
+<li>
+<p>Open a shell and initialize the database:</p>
+<p>a) With docker, run the following command to open a shell within
+the paperless container:</p>
+<div class="highlight"><pre><span></span><code>``` shell-session
+$ cd /path/to/paperless
+$ docker-compose run --rm webserver /bin/bash
+```
+
+This will launch the container and initialize the PostgreSQL
+database.
+</code></pre></div>
+<p>b) Without docker, remember to activate any virtual environment,
+switch to the <code>src</code> directory and create the database schema:</p>
+<div class="highlight"><pre><span></span><code>``` shell-session
+$ cd /path/to/paperless/src
+$ python3 manage.py migrate
+```
+
+This will not copy any data yet.
+</code></pre></div>
+</li>
+<li>
+<p>Dump your data from SQLite:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="gp">$ </span>python3<span class="w"> </span>manage.py<span class="w"> </span>dumpdata<span class="w"> </span>--database<span class="o">=</span>sqlite<span class="w"> </span>--exclude<span class="o">=</span>contenttypes<span class="w"> </span>--exclude<span class="o">=</span>auth.Permission<span class="w"> </span>&gt;<span class="w"> </span>data.json
+</code></pre></div>
+</li>
+<li>
+<p>Load your data into PostgreSQL:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="gp">$ </span>python3<span class="w"> </span>manage.py<span class="w"> </span>loaddata<span class="w"> </span>data.json
+</code></pre></div>
+</li>
+<li>
+<p>If operating inside Docker, you may exit the shell now.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="gp">$ </span><span class="nb">exit</span>
+</code></pre></div>
+</li>
+<li>
+<p>Start paperless.</p>
+</li>
+</ol>
+<h2 id="moving-back-to-paperless">Moving back to Paperless</h2>
+<p>Lets say you migrated to Paperless-ngx and used it for a while, but
+decided that you don't like it and want to move back (If you do, send
+me a mail about what part you didn't like!), you can totally do that
+with a few simple steps.</p>
+<p>Paperless-ngx modified the database schema slightly, however, these
+changes can be reverted while keeping your current data, so that your
+current data will be compatible with original Paperless.</p>
+<p>Execute this:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>/path/to/paperless
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="gp">$ </span>docker-compose<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>webserver<span class="w"> </span>migrate<span class="w"> </span>documents<span class="w"> </span><span class="m">0023</span>
+</code></pre></div>
+<p>Or without docker:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>/path/to/paperless/src
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="gp">$ </span>python3<span class="w"> </span>manage.py<span class="w"> </span>migrate<span class="w"> </span>documents<span class="w"> </span><span class="m">0023</span>
+</code></pre></div>
+<p>After that, you need to clear your cookies (Paperless-ngx comes with
+updated dependencies that do cookie-processing differently) and probably
+your cache as well.</p>
+<h1 id="less-powerful-devices">Considerations for less powerful devices</h1>
+<p>Paperless runs on Raspberry Pi. However, some things are rather slow on
+the Pi and configuring some options in paperless can help improve
+performance immensely:</p>
+<ul>
+<li>Stick with SQLite to save some resources.</li>
+<li>Consider setting <code>PAPERLESS_OCR_PAGES</code> to 1, so that paperless will
+  only OCR the first page of your documents. In most cases, this page
+  contains enough information to be able to find it.</li>
+<li><code>PAPERLESS_TASK_WORKERS</code> and <code>PAPERLESS_THREADS_PER_WORKER</code> are
+  configured to use all cores. The Raspberry Pi models 3 and up have 4
+  cores, meaning that paperless will use 2 workers and 2 threads per
+  worker. This may result in sluggish response times during
+  consumption, so you might want to lower these settings (example: 2
+  workers and 1 thread to always have some computing power left for
+  other tasks).</li>
+<li>Keep <code>PAPERLESS_OCR_MODE</code> at its default value <code>skip</code> and consider
+  OCR'ing your documents before feeding them into paperless. Some
+  scanners are able to do this! You might want to even specify
+  <code>skip_noarchive</code> to skip archive file generation for already ocr'ed
+  documents entirely.</li>
+<li>If you want to perform OCR on the device, consider using
+  <code>PAPERLESS_OCR_CLEAN=none</code>. This will speed up OCR times and use
+  less memory at the expense of slightly worse OCR results.</li>
+<li>If using docker, consider setting <code>PAPERLESS_WEBSERVER_WORKERS</code> to</li>
+<li>This will save some memory.</li>
+<li>Consider setting <code>PAPERLESS_ENABLE_NLTK</code> to false, to disable the
+  more advanced language processing, which can take more memory and
+  processing time.</li>
+</ul>
+<p>For details, refer to <a href="/configuration">configuration</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Updating the
+<a href="/advanced_usage#automatic-matching">automatic matching algorithm</a> takes quite a bit of time. However, the update mechanism
+checks if your data has changed before doing the heavy lifting. If you
+experience the algorithm taking too much cpu time, consider changing the
+schedule in the admin interface to daily. You can also manually invoke
+the task by changing the date and time of the next run to today/now.</p>
+<p>The actual matching of the algorithm is fast and works on Raspberry Pi
+as well as on any other device.</p>
+</div>
+<h1 id="nginx">Using nginx as a reverse proxy</h1>
+<p>If you want to expose paperless to the internet, you should hide it
+behind a reverse proxy with SSL enabled.</p>
+<p>In addition to the usual configuration for SSL, the following
+configuration is required for paperless to operate:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="k">http</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>
+<a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a><span class="w">    </span><span class="c1"># Adjust as required. This is the maximum size for file uploads.</span>
+<a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a><span class="w">    </span><span class="c1"># The default value 1M might be a little too small.</span>
+<a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a><span class="w">    </span><span class="kn">client_max_body_size</span><span class="w"> </span><span class="s">10M</span><span class="p">;</span>
+<a id="__codelineno-34-6" name="__codelineno-34-6" href="#__codelineno-34-6"></a>
+<a id="__codelineno-34-7" name="__codelineno-34-7" href="#__codelineno-34-7"></a><span class="w">    </span><span class="kn">server</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-34-8" name="__codelineno-34-8" href="#__codelineno-34-8"></a>
+<a id="__codelineno-34-9" name="__codelineno-34-9" href="#__codelineno-34-9"></a><span class="w">        </span><span class="kn">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-34-10" name="__codelineno-34-10" href="#__codelineno-34-10"></a>
+<a id="__codelineno-34-11" name="__codelineno-34-11" href="#__codelineno-34-11"></a><span class="w">            </span><span class="c1"># Adjust host and port as required.</span>
+<a id="__codelineno-34-12" name="__codelineno-34-12" href="#__codelineno-34-12"></a><span class="w">            </span><span class="kn">proxy_pass</span><span class="w"> </span><span class="s">http://localhost:8000/</span><span class="p">;</span>
+<a id="__codelineno-34-13" name="__codelineno-34-13" href="#__codelineno-34-13"></a>
+<a id="__codelineno-34-14" name="__codelineno-34-14" href="#__codelineno-34-14"></a><span class="w">            </span><span class="c1"># These configuration options are required for WebSockets to work.</span>
+<a id="__codelineno-34-15" name="__codelineno-34-15" href="#__codelineno-34-15"></a><span class="w">            </span><span class="kn">proxy_http_version</span><span class="w"> </span><span class="mi">1</span><span class="s">.1</span><span class="p">;</span>
+<a id="__codelineno-34-16" name="__codelineno-34-16" href="#__codelineno-34-16"></a><span class="w">            </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">Upgrade</span><span class="w"> </span><span class="nv">$http_upgrade</span><span class="p">;</span>
+<a id="__codelineno-34-17" name="__codelineno-34-17" href="#__codelineno-34-17"></a><span class="w">            </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">Connection</span><span class="w"> </span><span class="s">&quot;upgrade&quot;</span><span class="p">;</span>
+<a id="__codelineno-34-18" name="__codelineno-34-18" href="#__codelineno-34-18"></a>
+<a id="__codelineno-34-19" name="__codelineno-34-19" href="#__codelineno-34-19"></a><span class="w">            </span><span class="kn">proxy_redirect</span><span class="w"> </span><span class="no">off</span><span class="p">;</span>
+<a id="__codelineno-34-20" name="__codelineno-34-20" href="#__codelineno-34-20"></a><span class="w">            </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">Host</span><span class="w"> </span><span class="nv">$host</span><span class="p">;</span>
+<a id="__codelineno-34-21" name="__codelineno-34-21" href="#__codelineno-34-21"></a><span class="w">            </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Real-IP</span><span class="w"> </span><span class="nv">$remote_addr</span><span class="p">;</span>
+<a id="__codelineno-34-22" name="__codelineno-34-22" href="#__codelineno-34-22"></a><span class="w">            </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Forwarded-For</span><span class="w"> </span><span class="nv">$proxy_add_x_forwarded_for</span><span class="p">;</span>
+<a id="__codelineno-34-23" name="__codelineno-34-23" href="#__codelineno-34-23"></a><span class="w">            </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Forwarded-Host</span><span class="w"> </span><span class="nv">$server_name</span><span class="p">;</span>
+<a id="__codelineno-34-24" name="__codelineno-34-24" href="#__codelineno-34-24"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-34-25" name="__codelineno-34-25" href="#__codelineno-34-25"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-34-26" name="__codelineno-34-26" href="#__codelineno-34-26"></a><span class="p">}</span>
+</code></pre></div>
+<p>The <code>PAPERLESS_URL</code> configuration variable is also required when using a
+reverse proxy. Please refer to the <a href="/configuration#hosting-and-security">hosting and security</a> docs.</p>
+<p>Also read
+<a href="https://channels.readthedocs.io/en/stable/deploying.html#nginx-supervisor-ubuntu">this</a>,
+towards the end of the section.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2016 - 2022 Daniel Quinn, Jonas Winkler, and the Paperless-ngx team
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://github.com/paperless-ngx/paperless-ngx" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://hub.docker.com/r/paperlessngx/paperless-ngx" target="_blank" rel="noopener" title="hub.docker.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M349.9 236.3h-66.1v-59.4h66.1v59.4zm0-204.3h-66.1v60.7h66.1V32zm78.2 144.8H362v59.4h66.1v-59.4zm-156.3-72.1h-66.1v60.1h66.1v-60.1zm78.1 0h-66.1v60.1h66.1v-60.1zm276.8 100c-14.4-9.7-47.6-13.2-73.1-8.4-3.3-24-16.7-44.9-41.1-63.7l-14-9.3-9.3 14c-18.4 27.8-23.4 73.6-3.7 103.8-8.7 4.7-25.8 11.1-48.4 10.7H2.4c-8.7 50.8 5.8 116.8 44 162.1 37.1 43.9 92.7 66.2 165.4 66.2 157.4 0 273.9-72.5 328.4-204.2 21.4.4 67.6.1 91.3-45.2 1.5-2.5 6.6-13.2 8.5-17.1l-13.3-8.9zm-511.1-27.9h-66v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm-78.1-72.1h-66.1v60.1h66.1v-60.1z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://matrix.to/#/#paperless:matrix.org" target="_blank" rel="noopener" title="matrix.to" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3c5.5 0 10 3.58 10 8s-4.5 8-10 8c-1.24 0-2.43-.18-3.53-.5C5.55 21 2 21 2 21c2.33-2.33 2.7-3.9 2.75-4.5C3.05 15.07 2 13.13 2 11c0-4.42 4.5-8 10-8Z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.top", "toc.integrate", "content.code.annotate"], "search": "../assets/javascripts/workers/search.12658920.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.5cf534bf.min.js"></script>
+      
+    
+  </body>
+</html>
